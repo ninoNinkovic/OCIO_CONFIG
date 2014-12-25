@@ -505,6 +505,9 @@ colorspaces:
         - !<AllocationTransform> {allocation: lg2, vars: [-8.5, 5]}
         - !<FileTransform> {src: rrt_odt_dcdm_p3d60.spi3d, interpolation: tetrahedral}
 
+
+## used for lg2 shaper
+
   - !<ColorSpace>
     name: HDRlog
     family: log
@@ -520,20 +523,64 @@ colorspaces:
       children:
         - !<AllocationTransform> {allocation: lg2, vars: [-10.0, 4.5]}
         
+## linear for lg2 shaper & lut
+        
   - !<ColorSpace>
-    name: HDRlog4
-    family: log
+    name: exrScenelg2
+    family: utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Scene-linear, high dynamic range. Used for rendering and compositing.
+    isdata: false
+    allocation: lg2
+    allocationvars: [-10.0, 4.5]   
+    
+            
+    
+## linear for PQ shaper on display linear input (e.g. Technicolor files)
+    
+  - !<ColorSpace>
+    name: exrDisplay
+    family: utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Display-linear, high dynamic range. Used for rendering and compositing.
+    isdata: false
+    allocation: lg2
+    allocationvars: [-7.64, 13.3]    
+        
+## Shaper LUT for display linear (e.g. Technicolor files)
+        
+  - !<ColorSpace>
+    name: GenericPQShaper
+    family: PQlog
     equalitygroup: 
     bitdepth: 32f
     description: |
-      A mathematically idealized log space
+      The PQShaper color space
       
     isdata: false
-    allocation: uniform
-    allocationvars: [0, 1]
-    from_reference: !<GroupTransform>
-      children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-10.1, 4.25]}        
+    from_reference: !<FileTransform> {src: GenericPQ_1D_Shaper.spi1d, interpolation: linear, direction: forward}
+    to_reference:   !<FileTransform> {src: GenericPQ_1D_Shaper.spi1d, interpolation: linear, direction: inverse}            
+
+
+## linear for PQ shaper & lut
+        
+  - !<ColorSpace>
+    name: exrScenePQ
+    family: utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Scene-linear, high dynamic range. Used for rendering and compositing.
+    isdata: false
+    allocation: lg2
+    allocationvars: [-10.1, 4.25]     
+    
+
+## PQ Shaper for exrScenePQ scene linear files
 
   - !<ColorSpace>
     name: PQShaper
@@ -547,6 +594,9 @@ colorspaces:
     from_reference: !<FileTransform> {src: PQ_1D_Shaper.spi1d, interpolation: linear, direction: forward}
     to_reference:   !<FileTransform> {src: PQ_1D_Shaper.spi1d, interpolation: linear, direction: inverse}
     
+    
+## LUTs for use with PQ Shaper and Generic PQ Shaper
+    
   - !<ColorSpace>
     name: ACES_PQ_2_ODT_LUT
     family: rrt
@@ -558,6 +608,17 @@ colorspaces:
     from_reference: !<FileTransform> {src: ACES_PQ_2_ODT_LUT.spi3d, interpolation: tetrahedral}      
 
   - !<ColorSpace>
+    name: ACES_PQ_2_ODT_LUT1
+    family: rrt
+    equalitygroup: 
+    bitdepth: 32f
+    isdata: false
+    allocation: uniform
+    allocationvars: [0, 1]
+    from_reference: !<FileTransform> {src: ACES_PQ_2_ODT_LUT1.spi3d, interpolation: tetrahedral} 
+    
+    
+  - !<ColorSpace>
     name: ACES_PQ_2_ODT_LUT4
     family: rrt
     equalitygroup: 
@@ -567,6 +628,9 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<FileTransform> {src: ACES_PQ_2_ODT_LUT4.spi3d, interpolation: tetrahedral}      
         
+        
+## Use these LUTs with HDRLog colorspace from -10 to 4.5  
+## these will have a lg2 shaper ranged by the allocation transform and HDRLog both having same range      
         
   - !<ColorSpace>
     name: ACES_2_ODT_LUT
@@ -630,5 +694,5 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-10.1, 4.25]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-10.0, 4.5]}
         - !<FileTransform> {src: ACES_2_ODT_LUT4.spi3d, interpolation: tetrahedral}                                
