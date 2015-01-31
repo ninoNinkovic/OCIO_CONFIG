@@ -196,7 +196,7 @@ def main():
                                 prog='createShaper',
                                 version=' 0.1',
                                 usage='%prog [options]')
-    p.add_option('--lutResolution1d', default=10000)
+    p.add_option('--lutResolution1d', default=100000)
 
     options, arguments = p.parse_args()
 
@@ -235,7 +235,7 @@ def main():
 		cleanup, 
 		acesCTLReleaseDir,
 		0.0000019180,
-		15.7761012587)    
+		16.2917402385)    
 
 # main
 

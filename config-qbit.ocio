@@ -521,7 +521,7 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         
 ## linear for lg2 shaper & lut
         
@@ -534,7 +534,7 @@ colorspaces:
       Scene-linear, high dynamic range. Used for rendering and compositing.
     isdata: false
     allocation: lg2
-    allocationvars: [-18.991965849, 3.97966881166]   
+    allocationvars: [-18.991965849, 4.02606881166]   
     
             
 ##### Display Referred #######    
@@ -580,7 +580,7 @@ colorspaces:
       Scene-linear, high dynamic range. Used for rendering and compositing.
     isdata: false
     allocation: lg2
-    allocationvars: [-18.991965849, 3.97966881166]     
+    allocationvars: [-18.991965849, 4.02606881166]     
     
 
 ## PQ 1D Shaper for exrScenePQ scene linear files
@@ -661,7 +661,7 @@ colorspaces:
 ##### LUT PLaceholders for 3D LUT with lg2 1D Shaper input #######    
         
         
-## Use these LUTs with HDRLog colorspace from [-18.991965849, 3.97966881166]
+## Use these LUTs with HDRLog colorspace from [-18.991965849, 4.02606881166]
 ## these will have a lg2 shaper ranged by the allocation transform and HDRLog both having same range      
         
   - !<ColorSpace>
@@ -674,7 +674,7 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         - !<FileTransform> {src: ACES_2_ODT_LUT.spi3d, interpolation: tetrahedral}  
         
   - !<ColorSpace>
@@ -687,7 +687,7 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         - !<FileTransform> {src: ACES_2_ODT_LUT1.spi3d, interpolation: tetrahedral}          
         
   - !<ColorSpace>
@@ -700,7 +700,7 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         - !<FileTransform> {src: ACES_2_ODT_LUT2.spi3d, interpolation: tetrahedral}  
         
   - !<ColorSpace>
@@ -713,7 +713,7 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         - !<FileTransform> {src: ACES_2_ODT_LUT3.spi3d, interpolation: tetrahedral}  
         
   - !<ColorSpace>
@@ -726,5 +726,5 @@ colorspaces:
     allocationvars: [0, 1]
     from_reference: !<GroupTransform>
       children:
-        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 3.97966881166]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-18.991965849, 4.02606881166]}
         - !<FileTransform> {src: ACES_2_ODT_LUT4.spi3d, interpolation: tetrahedral}                                

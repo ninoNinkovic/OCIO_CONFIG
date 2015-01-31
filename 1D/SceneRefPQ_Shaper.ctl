@@ -14,11 +14,17 @@ float aces_to_PQ_32f(float acesValue)
   return PQ;
 }
 
+// range of LMT0.1.1 in v0.7.1
 // 0.0000019180  -18.991965849
 // 15.7761012587  3.97966881166
 // [-18.991965849, 3.97966881166] 
+
+// range of LMT 0.1.1 in V0.7.1
+// 0.0000054932  -17.4739217499
+// 16.2917402385  4.02606881166
+// 
 const float rangeMin=0.0000019180;
-const float rangeMax=15.7761012587;
+const float rangeMax=16.2917402385;
 
 void main 
 (
