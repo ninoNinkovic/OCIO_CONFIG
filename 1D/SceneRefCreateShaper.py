@@ -196,7 +196,7 @@ def main():
                                 prog='createShaper',
                                 version=' 0.1',
                                 usage='%prog [options]')
-    p.add_option('--lutResolution1d', default=100000)
+    p.add_option('--lutResolution1d', default=65536)
 
     options, arguments = p.parse_args()
 
