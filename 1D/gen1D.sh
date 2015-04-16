@@ -16,9 +16,9 @@ ls -l *spi1d
 cp -fv *spi1d ../luts
 
 pushd .
-cd $EDRHOME/ACES/HPD/python 
+cd $EDRHOME/ACES/HPD/python/aces
 rm 1D.ctf
-python  ./convertLUTtoCLF.py -i ../../../OCIO_CONFIG/luts/SceneRefPQ_Shaper.spi1d -o 1D.ctf
+python  ./convertLUTtoCLF.py -l ../../../../OCIO_CONFIG/luts/SceneRefPQ_Shaper.spi1d -c 1D.ctf
 more 1D.ctf
 popd
 
