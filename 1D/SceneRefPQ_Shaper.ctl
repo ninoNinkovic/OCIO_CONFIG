@@ -24,9 +24,12 @@ float aces_to_PQ_32f(float acesValue)
 // 16.2917402385  4.02606881166
 // 
 const float rangeMin=0.0000019180;
-const float rangeMax=16.2917402385;
+const float rangeMax=222.860944204;
 
-void main 
+// not limiting to LMT of 16.2917402385 now limiting to ACESProxy of:
+// 222.860944204 = 2**((3760-1700)/200 - 2.5) = 2**(7.8)
+
+void main  
 (
   input varying float rIn, 
   input varying float gIn, 
@@ -41,9 +44,10 @@ void main
  
   aces = clamp_f3( aces, rangeMin, rangeMax);
   
+  // go from 0-rangeMax+0.01
   aces[0] = (aces[0] - rangeMin)/(rangeMax-rangeMin);
-  aces[1] = (aces[1] - rangeMin)/(rangeMax-rangeMin);
-  aces[2] = (aces[2] - rangeMin)/(rangeMax-rangeMin);
+  aces[1] = (aces[1] - rangeMin )/(rangeMax-rangeMin);
+  aces[2] = (aces[2] - rangeMin )/(rangeMax-rangeMin);
 
 
   float acesLog32f[3];

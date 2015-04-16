@@ -569,6 +569,10 @@ colorspaces:
 
 ##### Scene Referred #######    
 
+## not limiting to LMT of 16.2917402385 now limiting to ACESProxy of:
+## 222.86 = 2**((3760-1700)/200 - 2.5) 
+## 222.86 = 2**(7.8)
+
 ## linear for Scene Referred exr ranged into a 1D PQ shaper & lut
         
   - !<ColorSpace>
@@ -580,7 +584,7 @@ colorspaces:
       Scene-linear, high dynamic range. Used for rendering and compositing.
     isdata: false
     allocation: lg2
-    allocationvars: [-18.991965849, 4.02606881166]     
+    allocationvars: [-18.991965849, 7.8]     
     
 
 ## PQ 1D Shaper for exrScenePQ scene linear files

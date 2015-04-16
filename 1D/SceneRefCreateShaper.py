@@ -235,8 +235,10 @@ def main():
 		cleanup, 
 		acesCTLReleaseDir,
 		0.0000019180,
-		16.2917402385)    
+		222.860944204)    
 
+# not limiting to LMT of 16.2917402385 now limiting to ACESProxy of:
+# 222.860944204 = 2**((3760-1700)/200 - 2.5) 
 # main
 
 if __name__ == '__main__':
