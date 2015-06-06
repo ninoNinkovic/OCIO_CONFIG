@@ -13,8 +13,10 @@ roles:
   data: raw
   default: raw
   matte_paint: raw
-  reference: aces
-  scene_linear: aces
+#  reference: aces
+#  scene_linear: aces
+  reference: exrScenePQ
+  scene_linear: exrScenePQ
   texture_paint: raw
 
 displays:
